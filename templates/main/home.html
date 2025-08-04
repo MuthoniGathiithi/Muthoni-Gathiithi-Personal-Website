@@ -1,0 +1,461 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block title %}Joyce Muthoni Gathiithi - Python/Django Developer & Cybersecurity Enthusiast{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <canvas id="particles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1 class="display-1 fw-bold mb-4">
+                        Joyce Muthoni<br>
+                        <span class="text-accent">Gathiithi</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        I'm a <span class="typing-animation text-accent">Python/Django Developer</span>
+                    </p>
+                    <p class="fs-5 text-secondary mb-5">
+                        Passionate about building secure web applications and exploring the fascinating intersection 
+                        of development and cybersecurity. I create robust Django applications, develop security tools, 
+                        and share knowledge through educational content.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{% url 'main:projects' %}" class="btn btn-primary-custom">
+                            <i class="fas fa-code me-2"></i>View My Work
+                        </a>
+                        <a href="{% url 'main:contact' %}" class="btn btn-outline-custom">
+                            <i class="fas fa-envelope me-2"></i>Get In Touch
+                        </a>
+                        <a href="https://github.com/MuthoniGathiithi" target="_blank" class="btn btn-outline-custom">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+                    <div class="image-placeholder">
+                        <div class="placeholder-content">
+                            <i class="fas fa-user-circle fa-10x text-accent mb-3"></i>
+                            <p class="text-muted">Photo Placeholder</p>
+                            <small class="text-muted">Your professional photo will go here</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+        <a href="#about" class="scroll-link">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section bg-dark" id="about">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>About Me</h2>
+            <p class="lead text-secondary">Passionate Developer & Security Enthusiast</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-5" data-aos="fade-right">
+                <div class="about-content">
+                    <h3 class="text-accent mb-4">My Journey</h3>
+                    <p class="text-secondary mb-4">
+                        I'm Joyce Muthoni Gathiithi, a dedicated Python/Django developer with a strong passion for 
+                        cybersecurity. My journey in technology has been driven by curiosity and a desire to build 
+                        secure, efficient web applications that make a difference.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        With expertise spanning from full-stack web development to cybersecurity tools, I enjoy 
+                        tackling complex problems and creating solutions that are both functional and secure. 
+                        My work ranges from Django web applications to security analysis tools.
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4 class="text-accent">25+</h4>
+                            <p class="text-muted">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4 class="text-accent">5+</h4>
+                            <p class="text-muted">Django Applications</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4 class="text-accent">8+</h4>
+                            <p class="text-muted">Security Tools</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4 class="text-accent">4+</h4>
+                            <p class="text-muted">Educational Repos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="skills-section">
+                    <h3 class="text-accent mb-4">Technical Skills</h3>
+                    
+                    <div class="skill-category mb-4">
+                        <h5 class="mb-3">Backend Development</h5>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="95"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">Django</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="90"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category mb-4">
+                        <h5 class="mb-3">Frontend Development</h5>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">HTML/CSS</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category mb-4">
+                        <h5 class="mb-3">Cybersecurity</h5>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">Security Analysis</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="85"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">Penetration Testing</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="75"></div>
+                            </div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h5 class="mb-3">Programming Languages</h5>
+                        <div class="skill-item-inline">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-percentage="80"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="section" id="featured-projects">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Featured Projects</h2>
+            <p class="lead text-secondary">Showcasing my best work in web development and cybersecurity</p>
+        </div>
+        
+        <div class="row">
+            {% for project in featured_projects %}
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                <div class="project-card">
+                    <div class="project-image">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid">
+                        {% else %}
+                            <i class="fas fa-{% if project.category == 'django' %}globe{% elif project.category == 'security' %}shield-alt{% elif project.category == 'educational' %}graduation-cap{% elif project.category == 'cpp' %}code{% else %}python{% endif %}"></i>
+                        {% endif %}
+                    </div>
+                    <div class="project-content">
+                        <h4 class="project-title">{{ project.title }}</h4>
+                        <p class="project-description">{{ project.description|truncatewords:20 }}</p>
+                        <div class="project-tech">
+                            {% for tech in project.technologies|split:"," %}
+                                <span class="tech-tag">{{ tech|strip }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            <a href="{{ project.github_url }}" target="_blank" class="project-link">
+                                <i class="fab fa-github me-1"></i>Code
+                            </a>
+                            {% if project.live_demo_url %}
+                            <a href="{{ project.live_demo_url }}" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-code fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">No featured projects yet</h4>
+                    <p class="text-muted">Projects will be displayed here once added through the admin panel.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="{% url 'main:projects' %}" class="btn btn-primary-custom">
+                <i class="fas fa-th-large me-2"></i>View All Projects
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Specializations Section -->
+<section class="section bg-dark" id="specializations">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>My Specializations</h2>
+            <p class="lead text-secondary">Areas where I excel and create impact</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-custom text-center">
+                    <div class="specialization-icon mb-3">
+                        <i class="fab fa-python fa-3x text-accent"></i>
+                    </div>
+                    <h4 class="mb-3">Django Development</h4>
+                    <p class="text-secondary">
+                        Building robust, scalable web applications with Django. From authentication systems 
+                        to complex business logic, I create solutions that work.
+                    </p>
+                    <ul class="list-unstyled text-start mt-3">
+                        <li><i class="fas fa-check text-accent me-2"></i>Full Authentication Systems</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>CRUD Applications</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>API Development</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Database Design</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-custom text-center">
+                    <div class="specialization-icon mb-3">
+                        <i class="fas fa-shield-alt fa-3x text-accent"></i>
+                    </div>
+                    <h4 class="mb-3">Cybersecurity Tools</h4>
+                    <p class="text-secondary">
+                        Developing security analysis tools and scripts. From password validators to 
+                        network monitoring, I build tools that enhance security.
+                    </p>
+                    <ul class="list-unstyled text-start mt-3">
+                        <li><i class="fas fa-check text-accent me-2"></i>Security Analysis Scripts</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Password Validation Tools</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Network Monitoring</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Encryption Utilities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-custom text-center">
+                    <div class="specialization-icon mb-3">
+                        <i class="fas fa-graduation-cap fa-3x text-accent"></i>
+                    </div>
+                    <h4 class="mb-3">Educational Content</h4>
+                    <p class="text-secondary">
+                        Creating beginner-friendly tutorials and practice projects. I believe in sharing 
+                        knowledge and helping others learn programming concepts.
+                    </p>
+                    <ul class="list-unstyled text-start mt-3">
+                        <li><i class="fas fa-check text-accent me-2"></i>Python Basics Tutorials</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>C++ Practice Projects</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Algorithm Implementations</li>
+                        <li><i class="fas fa-check text-accent me-2"></i>Code Documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="section" id="cta">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2 class="mb-4">Let's Build Something Amazing Together</h2>
+                <p class="lead text-secondary mb-5">
+                    I'm always interested in new opportunities and collaborations. Whether you need a 
+                    Django application, security analysis, or just want to discuss technology, I'd love to hear from you.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{% url 'main:contact' %}" class="btn btn-primary-custom">
+                        <i class="fas fa-envelope me-2"></i>Start a Conversation
+                    </a>
+                    <a href="{% url 'main:projects' %}" class="btn btn-outline-custom">
+                        <i class="fas fa-eye me-2"></i>View My Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    background: var(--gradient-dark);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    border: 2px dashed var(--border-color);
+    transition: all var(--transition-medium);
+}
+
+.image-placeholder:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-medium);
+}
+
+.placeholder-content i {
+    opacity: 0.3;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-link {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    min-width: 120px;
+    font-weight: 500;
+}
+
+.skill-progress {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.skill-percentage {
+    min-width: 40px;
+    text-align: right;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.specialization-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .skill-item-inline {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .skill-name {
+        min-width: auto;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-progress {
+        margin: 0.5rem 0;
+    }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Initialize particles animation
+document.addEventListener('DOMContentLoaded', function() {
+    initParticles();
+});
+</script>
+{% endblock %}
