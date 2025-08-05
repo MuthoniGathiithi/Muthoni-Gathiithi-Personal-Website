@@ -2,7 +2,7 @@ services:
   - type: web
     name: muthoni-gathiithi-portfolio
     env: python
-    buildCommand: "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
+    buildCommand: "./build.sh"
     startCommand: "gunicorn portfolio.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
