@@ -24,13 +24,7 @@
         <div class="row">
             <div class="col-lg-6 mb-5" data-aos="fade-right">
                 <div class="about-image-section">
-                    <div class="image-placeholder-large">
-                        <div class="placeholder-content">
-                            <i class="fas fa-user-circle fa-8x text-accent mb-3"></i>
-                            <h4 class="text-muted">Professional Photo</h4>
-                            <p class="text-muted">Your photo will be displayed here</p>
-                        </div>
-                    </div>
+                    <img src="{% static 'images/profile-photo.jpg' %}" alt="Joyce Muthoni Gathiithi" class="img-fluid rounded-3 shadow-lg profile-photo-large">
                 </div>
             </div>
             
@@ -95,4 +89,28 @@
         {% endfor %}
     </div>
 </section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.profile-photo-large {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+    transition: all var(--transition-medium);
+}
+
+.profile-photo-large:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
+}
+
+.about-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
 {% endblock %}

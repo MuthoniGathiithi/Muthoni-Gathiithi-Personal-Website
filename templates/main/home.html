@@ -39,13 +39,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <i class="fas fa-user-circle fa-10x text-accent mb-3"></i>
-                            <p class="text-muted">Photo Placeholder</p>
-                            <small class="text-muted">Your professional photo will go here</small>
-                        </div>
-                    </div>
+                    <img src="{% static 'images/profile-photo.jpg' %}" alt="Joyce Muthoni Gathiithi" class="img-fluid rounded-circle profile-photo">
                 </div>
             </div>
         </div>
@@ -336,22 +330,18 @@
     overflow: hidden;
 }
 
-.image-placeholder {
-    background: var(--gradient-dark);
-    border-radius: 20px;
-    padding: 3rem;
-    text-align: center;
-    border: 2px dashed var(--border-color);
+.profile-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
     transition: all var(--transition-medium);
 }
 
-.image-placeholder:hover {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-medium);
-}
-
-.placeholder-content i {
-    opacity: 0.3;
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 212, 255, 0.5);
 }
 
 .scroll-indicator {
