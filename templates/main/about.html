@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-6 mb-5" data-aos="fade-right">
                 <div class="about-image-section">
-                    <img src="{% static 'images/profile-photo.jpg' %}" alt="Joyce Muthoni Gathiithi" class="img-fluid rounded-3 shadow-lg profile-photo-large">
+                    <img src="{% static 'images/profile-photo.jpg' %}" alt="Joyce Muthoni Gathiithi" class="profile-photo-large">
                 </div>
             </div>
             
@@ -93,24 +93,27 @@
 
 {% block extra_css %}
 <style>
+.about-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-photo-large {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
-    border: 5px solid var(--primary-color);
+    border-radius: 20px;
+    border: 5px solid #00d4ff;
     box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
-    transition: all var(--transition-medium);
+    transition: all 0.3s ease;
+    display: block;
+    object-fit: cover;
 }
 
 .profile-photo-large:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
-}
-
-.about-image-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 </style>
 {% endblock %}
