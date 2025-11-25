@@ -21,7 +21,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -145,61 +145,100 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer bg-dark text-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="text-accent mb-3">Joyce Muthoni Gathiithi</h5>
-                    <p class="text-muted">Python/Django Developer & Cybersecurity Enthusiast passionate about building secure web applications and exploring the intersection of development and security.</p>
+    <footer class="footer bg-darker text-light">
+        <div class="container py-5">
+            <!-- Main Footer Content -->
+            <div class="row mb-5">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="footer-card p-4">
+                        <h5 class="text-accent mb-3">Joyce Muthoni Gathiithi</h5>
+                        <p class="text-muted mb-0">Python/Django Developer & Cybersecurity Enthusiast. Building secure applications and exploring the intersection of development and security.</p>
+                    </div>
                 </div>
                 
-                <div class="col-lg-2 mb-4">
-                    <h6 class="text-accent mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'main:home' %}" class="text-muted text-decoration-none">Home</a></li>
-                        <li><a href="{% url 'main:about' %}" class="text-muted text-decoration-none">About</a></li>
-                        <li><a href="{% url 'main:projects' %}" class="text-muted text-decoration-none">Projects</a></li>
-                        <li><a href="{% url 'main:security' %}" class="text-muted text-decoration-none">Security</a></li>
-                    </ul>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-card p-4">
+                        <h6 class="text-accent mb-3"><i class="fas fa-code me-2"></i>Quick Navigation</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'main:home' %}" class="footer-link"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+                            <li><a href="{% url 'main:about' %}" class="footer-link"><i class="fas fa-angle-right me-2"></i>About</a></li>
+                            <li><a href="{% url 'main:projects' %}" class="footer-link"><i class="fas fa-angle-right me-2"></i>All Projects</a></li>
+                            <li><a href="{% url 'main:security' %}" class="footer-link"><i class="fas fa-angle-right me-2"></i>Security</a></li>
+                            <li><a href="{% url 'main:contact' %}" class="footer-link"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="col-lg-3 mb-4">
-                    <h6 class="text-accent mb-3">Project Categories</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'main:projects' %}?category=django" class="text-muted text-decoration-none">Django Apps</a></li>
-                        <li><a href="{% url 'main:projects' %}?category=security" class="text-muted text-decoration-none">Security Tools</a></li>
-                        <li><a href="{% url 'main:projects' %}?category=educational" class="text-muted text-decoration-none">Educational</a></li>
-                        <li><a href="{% url 'main:projects' %}?category=cpp" class="text-muted text-decoration-none">C++ Projects</a></li>
-                    </ul>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="footer-card p-4">
+                        <h6 class="text-accent mb-3"><i class="fas fa-filter me-2"></i>Project Categories</h6>
+                        <ul class="list-unstyled">
+                            {% for category in project_counts.categories %}
+                            <li>
+                                <a href="{% url 'main:projects' %}?category={{ category.key }}" class="footer-link">
+                                    <i class="fas fa-{% if category.key == 'django' %}globe{% elif category.key == 'security' %}shield-alt{% elif category.key == 'educational' %}graduation-cap{% elif category.key == 'cpp' %}code{% else %}python{% endif %} me-2"></i>
+                                    {{ category.label }} ({{ category.count }})
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="col-lg-3 mb-4">
-                    <h6 class="text-accent mb-3">Connect With Me</h6>
-                    <div class="social-links">
-                        <a href="mailto:gathiithijoyce74@gmail.com" class="social-link" title="Email">
-                            <i class="fas fa-envelope"></i>
+            </div>
+
+            <!-- Social Links Section -->
+            <div class="row mb-5">
+                <div class="col-12" data-aos="fade-up">
+                    <h5 class="text-center text-accent mb-4">Connect With Me</h5>
+                    <div class="social-cards-grid">
+                        <a href="mailto:gathiithijoyce74@gmail.com" class="social-card" title="Email">
+                            <div class="social-card-content">
+                                <i class="fas fa-envelope fa-2x"></i>
+                                <h6 class="mt-3">Email</h6>
+                                <p class="small text-muted">gathiithijoyce74@gmail.com</p>
+                            </div>
                         </a>
-                        <a href="https://linkedin.com/in/muthoni-gathiithi" target="_blank" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
+                        
+                        <a href="https://github.com/MuthoniGathiithi" target="_blank" class="social-card" title="GitHub">
+                            <div class="social-card-content">
+                                <i class="fab fa-github fa-2x"></i>
+                                <h6 class="mt-3">GitHub</h6>
+                                <p class="small text-muted">{{ project_counts.total }} Projects</p>
+                            </div>
                         </a>
-                        <a href="https://github.com/MuthoniGathiithi" target="_blank" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
+                        
+                        <a href="https://linkedin.com/in/muthoni-gathiithi" target="_blank" class="social-card" title="LinkedIn">
+                            <div class="social-card-content">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                                <h6 class="mt-3">LinkedIn</h6>
+                                <p class="small text-muted">/in/muthoni-gathiithi</p>
+                            </div>
                         </a>
-                        <a href="https://www.hackerrank.com/profile/gathiithijoyce74" target="_blank" class="social-link" title="HackerRank">
-                            <i class="fab fa-hackerrank"></i>
+                        
+                        <a href="https://www.hackerrank.com/profile/gathiithijoyce74" target="_blank" class="social-card" title="HackerRank">
+                            <div class="social-card-content">
+                                <i class="fab fa-hackerrank fa-2x"></i>
+                                <h6 class="mt-3">HackerRank</h6>
+                                <p class="small text-muted">Programming Challenges</p>
+                            </div>
                         </a>
-                        <a href="https://tryhackme.com/p/MuthoniGathiithi" target="_blank" class="social-link" title="TryHackMe">
-                            <i class="fas fa-flag"></i>
+                        
+                        <a href="https://tryhackme.com/p/MuthoniGathiithi" target="_blank" class="social-card" title="TryHackMe">
+                            <div class="social-card-content">
+                                <i class="fas fa-flag fa-2x"></i>
+                                <h6 class="mt-3">TryHackMe</h6>
+                                <p class="small text-muted">Security Learning</p>
+                            </div>
                         </a>
                     </div>
                 </div>
             </div>
-            
-            <hr class="my-4">
+
+            <hr class="my-4" style="border-color: var(--border-color);">
             
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="text-muted mb-0">&copy; 2024 Joyce Muthoni Gathiithi. All rights reserved.</p>
+                    <p class="text-muted mb-0">&copy; 2025 Joyce Muthoni Gathiithi. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="text-muted mb-0">Built with <i class="fas fa-heart text-accent"></i> using Django</p>
