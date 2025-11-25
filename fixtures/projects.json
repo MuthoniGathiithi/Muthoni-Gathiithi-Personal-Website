@@ -250,5 +250,19 @@
       "featured": false,
       "created_date": "2024-11-25T00:00:00Z"
     }
+  },
+  {
+    "model": "main.project",
+    "pk": 19,
+    "fields": {
+      "title": "Personal Portfolio Platform",
+      "description": "Tech-forward portfolio built with Django to showcase 19 projects, security credentials, and collaboration channels in one interactive experience.",
+      "category": "django",
+      "github_url": "https://github.com/MuthoniGathiithi/Muthoni-Gathiithi-Personal-Website",
+      "live_demo_url": "",
+      "technologies": "Django, Bootstrap 5, AOS, PostgreSQL",
+      "featured": true,
+      "created_date": "2024-11-25T00:00:00Z"
+    }
   }
 ]
