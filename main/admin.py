@@ -8,6 +8,23 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ['title', 'description', 'technologies']
     list_editable = ['featured']
     ordering = ['-created_date']
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('title', 'category', 'description')
+        }),
+        ('Links & URLs', {
+            'fields': ('github_url', 'live_demo_url'),
+            'description': 'GitHub repository and live demo URLs'
+        }),
+        ('Project Details', {
+            'fields': ('technologies', 'image')
+        }),
+        ('Status', {
+            'fields': ('featured', 'created_date'),
+            'classes': ('collapse',)
+        }),
+    )
+    readonly_fields = ['created_date']
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
