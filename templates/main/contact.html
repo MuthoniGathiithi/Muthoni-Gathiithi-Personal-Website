@@ -21,6 +21,73 @@
 <!-- Contact Section -->
 <section class="section bg-dark">
     <div class="container">
+        <!-- Connect Cards Section -->
+        <div class="row mb-5" data-aos="fade-up">
+            <div class="col-12 text-center mb-5">
+                <h2 class="text-accent mb-3">Connect With Me</h2>
+                <p class="lead text-secondary">Find me on these platforms</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="50">
+                <a href="mailto:gathiithijoyce74@gmail.com" class="connect-card">
+                    <div class="connect-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <p>gathiithijoyce74@gmail.com</p>
+                    <small>Direct message</small>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://github.com/MuthoniGathiithi" target="_blank" class="connect-card">
+                    <div class="connect-card-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h5>GitHub</h5>
+                    <p>MuthoniGathiithi</p>
+                    <small>19 Projects</small>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="150">
+                <a href="https://linkedin.com/in/muthoni-gathiithi" target="_blank" class="connect-card">
+                    <div class="connect-card-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h5>LinkedIn</h5>
+                    <p>muthoni-gathiithi</p>
+                    <small>Professional Profile</small>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.hackerrank.com/profile/gathiithijoyce74" target="_blank" class="connect-card">
+                    <div class="connect-card-icon">
+                        <i class="fab fa-hackerrank"></i>
+                    </div>
+                    <h5>HackerRank</h5>
+                    <p>gathiithijoyce74</p>
+                    <small>Coding Challenges</small>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="250">
+                <a href="https://tryhackme.com/p/MuthoniGathiithi" target="_blank" class="connect-card">
+                    <div class="connect-card-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h5>TryHackMe</h5>
+                    <p>MuthoniGathiithi</p>
+                    <small>Cybersecurity Learning</small>
+                </a>
+            </div>
+        </div>
+
+        <hr class="my-5" style="border-color: var(--border-color);">
+
         <div class="row">
             <!-- Contact Form -->
             <div class="col-lg-8 mb-5" data-aos="fade-right">
@@ -195,6 +262,78 @@
 
 {% block extra_css %}
 <style>
+.connect-card {
+    display: block;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-medium);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.connect-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left var(--transition-slow);
+}
+
+.connect-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-8px);
+}
+
+.connect-card:hover::before {
+    left: 100%;
+}
+
+.connect-card-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    transition: all var(--transition-medium);
+}
+
+.connect-card:hover .connect-card-icon {
+    color: var(--primary-color);
+    transform: scale(1.15);
+}
+
+.connect-card h5 {
+    position: relative;
+    z-index: 1;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.connect-card p {
+    position: relative;
+    z-index: 1;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.connect-card small {
+    position: relative;
+    z-index: 1;
+    color: var(--text-muted);
+}
+
 .contact-item {
     display: flex;
     align-items: flex-start;
@@ -257,6 +396,14 @@
 }
 
 @media (max-width: 768px) {
+    .connect-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .connect-card-icon {
+        font-size: 2rem;
+    }
+    
     .contact-item {
         flex-direction: column;
         text-align: center;
