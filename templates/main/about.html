@@ -30,22 +30,27 @@
             
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="about-content">
-                    <h2 class="text-accent mb-4">My Story</h2>
+                    <h2 class="text-accent mb-4">19 Projects, 1 Mission</h2>
                     <p class="text-secondary mb-4">
-                        Hello! I'm Joyce Muthoni Gathiithi, a passionate Python/Django developer with a deep 
-                        interest in cybersecurity. My journey in technology began with curiosity about how 
-                        things work and evolved into a love for creating secure, efficient solutions.
+                        I'm Joyce Muthoni Gathiithi — a Python/Django engineer who treats every deployment as a
+                        security story. My Render launches cover bug tracking, admin control centers, auth suites,
+                        contact orchestration, and attendance systems. On GitHub, I maintain AI copilots, Flutter
+                        starters, DS&A labs, and beginner-first tutorials.
                     </p>
                     <p class="text-secondary mb-4">
-                        I specialize in building robust web applications using Django, developing cybersecurity 
-                        tools, and creating educational content to help others learn programming. My approach 
-                        combines technical expertise with a security-first mindset.
+                        This blend keeps me fluent across backend engineering, UI polish, and cyber hygiene. The repos
+                        shout about automation, while TryHackMe and HackerRank track the security drills that influence
+                        my design decisions.
                     </p>
-                    <p class="text-secondary mb-4">
-                        When I'm not coding, you can find me exploring new security concepts on platforms like 
-                        TryHackMe and HackerRank, contributing to open-source projects, or sharing knowledge 
-                        through my educational repositories.
-                    </p>
+                    <div class="metrics-grid">
+                        {% for metric in impact_metrics %}
+                        <div class="metric-card">
+                            <h3 class="text-accent">{{ metric.value }}</h3>
+                            <p class="text-muted mb-1">{{ metric.label }}</p>
+                            <small class="text-secondary">{{ metric.caption }}</small>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,33 +65,68 @@
             <p class="lead text-secondary">Technologies and tools I work with</p>
         </div>
         
-        {% for category, skills in skills_by_category.items %}
-        <div class="skill-category-section mb-5" data-aos="fade-up">
-            <h3 class="text-accent mb-4">{{ category }}</h3>
-            <div class="row">
-                {% for skill in skills %}
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <div class="skill-item text-center">
-                        <div class="skill-icon mb-3">
-                            <i class="fas fa-code fa-3x text-accent"></i>
-                        </div>
-                        <h5 class="skill-name">{{ skill.name }}</h5>
-                        <div class="skill-progress">
-                            <div class="skill-progress-bar" data-percentage="{{ skill.proficiency }}"></div>
-                        </div>
-                        <span class="skill-percentage">{{ skill.proficiency }}%</span>
-                    </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5" data-aos="fade-right">
+                <h3 class="text-accent mb-3">Stack Signals</h3>
+                <p class="text-secondary">
+                    The portfolio is split across {{ project_story.categories|length }} specialization tracks.
+                    Django carries the production deployments, Python and C++ repos drill fundamentals, while
+                    Flutter/PHP builds keep my UI thinking sharp. Below are the stacks that surface most often.
+                </p>
+                <div class="stack-chips mt-4">
+                    {% for tech in project_story.top_stack %}
+                        <span class="stack-chip">
+                            <span>{{ tech.name }}</span>
+                            <small>{{ tech.count }} uses</small>
+                        </span>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <div class="category-pills mt-4">
+                    {% for item in project_story.categories %}
+                        <span class="category-pill">
+                            {{ item.label }} • {{ item.count }} projects
+                        </span>
+                    {% endfor %}
+                </div>
+                <div class="mt-4">
+                    <a href="mailto:gathiithijoyce74@gmail.com" class="btn btn-primary-custom me-3">
+                        <i class="fas fa-envelope me-2"></i>Email Me
+                    </a>
+                    <a href="https://github.com/MuthoniGathiithi" target="_blank" class="btn btn-outline-custom">
+                        <i class="fab fa-github me-2"></i>View GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="skill-grid">
+                    {% for insight in skills_insights %}
+                    <div class="skill-pillar-card mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="mb-0">{{ insight.label }}</h4>
+                            <span class="badge bg-primary">{{ insight.count }} projects</span>
+                        </div>
+                        <p class="text-secondary mb-3">
+                            Featured builds:
+                            {% for project in insight.projects %}
+                                <span class="text-light">{{ project }}</span>{% if not forloop.last %},{% endif %}
+                            {% endfor %}
+                        </p>
+                        <div class="tech-grid">
+                            {% for tech in insight.tech_stack %}
+                                <span class="tech-chip">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-5">
+                        <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+                        <h4 class="text-muted">Skills will be displayed here</h4>
+                        <p class="text-muted">Add skills through the admin panel to showcase your expertise.</p>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        {% empty %}
-        <div class="text-center py-5">
-            <i class="fas fa-tools fa-3x text-muted mb-3"></i>
-            <h4 class="text-muted">Skills will be displayed here</h4>
-            <p class="text-muted">Add skills through the admin panel to showcase your expertise.</p>
-        </div>
-        {% endfor %}
     </div>
 </section>
 {% endblock %}
