@@ -12,7 +12,7 @@
             <div class="col-12 text-center">
                 <h1 class="display-3 fw-bold text-gradient mb-4" data-aos="fade-up">My Projects</h1>
                 <p class="lead text-secondary" data-aos="fade-up" data-aos-delay="100">
-                    Explore my portfolio of Django applications, security tools, and educational content
+                    Explore all {{ project_total }} launches spanning Django, security, Python, C++, Flutter, and PHP
                 </p>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="filter-section text-center mb-5" data-aos="fade-up">
             <div class="filter-buttons">
                 <a href="{% url 'main:projects' %}" class="btn btn-outline-custom filter-btn {% if current_category == 'all' %}active{% endif %}">
-                    <i class="fas fa-th-large me-2"></i>All Projects
+                    <i class="fas fa-th-large me-2"></i>All Projects ({{ project_total }})
                 </a>
                 {% for category_key, category_name in categories %}
                 <a href="{% url 'main:projects' %}?category={{ category_key }}" class="btn btn-outline-custom filter-btn {% if current_category == category_key %}active{% endif %}">
@@ -53,6 +53,14 @@
                         </div>
                         <h4 class="project-title">{{ project.title }}</h4>
                         <p class="project-description">{{ project.description|truncatewords:25 }}</p>
+                        <div class="project-meta mb-3">
+                            <span><i class="fas fa-layer-group me-2"></i>{{ project.technologies|split:","|first|strip }} stack</span>
+                            {% if project.live_demo_url %}
+                                <span><i class="fas fa-satellite-dish me-2"></i>Live on Render</span>
+                            {% else %}
+                                <span><i class="fas fa-code-branch me-2"></i>GitHub focused</span>
+                            {% endif %}
+                        </div>
                         <div class="project-tech">
                             {% for tech in project.technologies|split:"," %}
                                 <span class="tech-tag">{{ tech|strip }}</span>
@@ -90,43 +98,6 @@
             </div>
             {% endfor %}
         </div>
-        
-        <!-- Pagination -->
-        {% if projects.has_other_pages %}
-        <div class="pagination-section mt-5" data-aos="fade-up">
-            <nav aria-label="Projects pagination">
-                <ul class="pagination justify-content-center">
-                    {% if projects.has_previous %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ projects.previous_page_number }}{% if current_category != 'all' %}&category={{ current_category }}{% endif %}">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    
-                    {% for num in projects.paginator.page_range %}
-                        {% if projects.number == num %}
-                            <li class="page-item active">
-                                <span class="page-link">{{ num }}</span>
-                            </li>
-                        {% elif num > projects.number|add:'-3' and num < projects.number|add:'3' %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ num }}{% if current_category != 'all' %}&category={{ current_category }}{% endif %}">{{ num }}</a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
-                    
-                    {% if projects.has_next %}
-                        <li class="page-item">
-                            <a class="page-link" href="?page={{ projects.next_page_number }}{% if current_category != 'all' %}&category={{ current_category }}{% endif %}">
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-        {% endif %}
     </div>
 </section>
 
