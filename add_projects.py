@@ -187,6 +187,15 @@ projects_data = [
         'technologies': 'PHP, MySQL, HTML5, CSS3, JavaScript, E-commerce',
         'featured': False,
     },
+    {
+        'title': 'Personal Portfolio Platform',
+        'description': 'This very portfolio — a tech-forward personal site that showcases 19 projects, security journeys, and contact channels in an interactive Django experience.',
+        'category': 'django',
+        'github_url': 'https://github.com/MuthoniGathiithi/Muthoni-Gathiithi-Personal-Website',
+        'live_demo_url': '',
+        'technologies': 'Django, Bootstrap 5, AOS, PostgreSQL',
+        'featured': True,
+    },
 ]
 
 # Add projects to database
