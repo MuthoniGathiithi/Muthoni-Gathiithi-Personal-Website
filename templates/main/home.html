@@ -20,9 +20,8 @@
                         I'm a <span class="typing-animation text-accent">Python/Django Developer</span>
                     </p>
                     <p class="fs-5 text-secondary mb-5">
-                        Passionate about building secure web applications and exploring the fascinating intersection 
-                        of development and cybersecurity. I create robust Django applications, develop security tools, 
-                        and share knowledge through educational content.
+                        19 open-source builds later, I design security-first Django platforms, automation assistants,
+                        and learning sandboxes that ship to Render and GitHub with clean documentation.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="{% url 'main:projects' %}" class="btn btn-primary-custom">
@@ -30,6 +29,9 @@
                         </a>
                         <a href="https://github.com/MuthoniGathiithi" target="_blank" class="btn btn-outline-custom">
                             <i class="fab fa-github me-2"></i>GitHub Profile
+                        </a>
+                        <a href="https://linkedin.com/in/muthoni-gathiithi" target="_blank" class="btn btn-outline-custom">
+                            <i class="fab fa-linkedin me-2"></i>Connect on LinkedIn
                         </a>
                         <a href="{% url 'main:contact' %}" class="btn btn-outline-custom">
                             <i class="fas fa-envelope me-2"></i>Get In Touch
@@ -64,34 +66,28 @@
         <div class="row">
             <div class="col-lg-6 mb-5" data-aos="fade-right">
                 <div class="about-content">
-                    <h3 class="text-accent mb-4">My Journey</h3>
+                    <h3 class="text-accent mb-4">19 Projects. One Secure Vision.</h3>
                     <p class="text-secondary mb-4">
-                        I'm Joyce Muthoni Gathiithi, a dedicated Python/Django developer with a strong passion for 
-                        cybersecurity. My journey in technology has been driven by curiosity and a desire to build 
-                        secure, efficient web applications that make a difference.
+                        Every deployment reflects a balance of resilient architecture, clean UI, and cyber hygiene.
+                        From Render-hosted Django ecosystems to AI-powered assistants and low-level DS&A drills,
+                        I turn learning into shippable impact.
                     </p>
-                    <p class="text-secondary mb-4">
-                        With expertise spanning from full-stack web development to cybersecurity tools, I enjoy 
-                        tackling complex problems and creating solutions that are both functional and secure. 
-                        My work ranges from Django web applications to security analysis tools.
-                    </p>
-                    
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <h4 class="text-accent">25+</h4>
-                            <p class="text-muted">Projects Completed</p>
+                            <h4 class="text-accent">{{ project_metrics.total }}+</h4>
+                            <p class="text-muted">Open-Source Builds</p>
                         </div>
                         <div class="stat-item">
-                            <h4 class="text-accent">5+</h4>
-                            <p class="text-muted">Django Applications</p>
+                            <h4 class="text-accent">{{ project_metrics.render }}</h4>
+                            <p class="text-muted">Render Deployments</p>
                         </div>
                         <div class="stat-item">
-                            <h4 class="text-accent">8+</h4>
-                            <p class="text-muted">Security Tools</p>
+                            <h4 class="text-accent">{{ project_metrics.security }}</h4>
+                            <p class="text-muted">Security & AI Tools</p>
                         </div>
                         <div class="stat-item">
-                            <h4 class="text-accent">4+</h4>
-                            <p class="text-muted">Educational Repos</p>
+                            <h4 class="text-accent">{{ project_metrics.educational }}</h4>
+                            <p class="text-muted">Learning Repositories</p>
                         </div>
                     </div>
                 </div>
@@ -102,67 +98,31 @@
                     <h3 class="text-accent mb-4">Technical Skills</h3>
                     
                     <div class="skill-category mb-4">
-                        <h5 class="mb-3">Backend Development</h5>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="95"></div>
-                            </div>
-                            <span class="skill-percentage">95%</span>
-                        </div>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">Django</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="90"></div>
-                            </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category mb-4">
-                        <h5 class="mb-3">Frontend Development</h5>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">HTML/CSS</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="85"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="80"></div>
-                            </div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category mb-4">
-                        <h5 class="mb-3">Cybersecurity</h5>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">Security Analysis</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="85"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">Penetration Testing</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="75"></div>
-                            </div>
-                            <span class="skill-percentage">75%</span>
+                        <h5 class="mb-3">Tech Pulse From The Projects</h5>
+                        <div class="stack-chips">
+                            {% for tech in stack_snapshot %}
+                                <span class="stack-chip">
+                                    <span>{{ tech.name }}</span>
+                                    <small>{{ tech.count }} builds</small>
+                                </span>
+                            {% empty %}
+                                <span class="text-muted">Stack data populates once projects are added.</span>
+                            {% endfor %}
                         </div>
                     </div>
                     
                     <div class="skill-category">
-                        <h5 class="mb-3">Programming Languages</h5>
-                        <div class="skill-item-inline">
-                            <span class="skill-name">C++</span>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" data-percentage="80"></div>
-                            </div>
-                            <span class="skill-percentage">80%</span>
+                        <h5 class="mb-3">Active Communities</h5>
+                        <div class="link-grid">
+                            <a href="https://github.com/MuthoniGathiithi" target="_blank" class="stack-link">
+                                <i class="fab fa-github"></i> GitHub Repositories
+                            </a>
+                            <a href="https://www.hackerrank.com/profile/gathiithijoyce74" target="_blank" class="stack-link">
+                                <i class="fab fa-hackerrank"></i> HackerRank Challenges
+                            </a>
+                            <a href="https://tryhackme.com/p/MuthoniGathiithi" target="_blank" class="stack-link">
+                                <i class="fas fa-flag"></i> TryHackMe Labs
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +141,7 @@
         
         <div class="row">
             {% for project in featured_projects %}
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
                 <div class="project-card">
                     <div class="project-image">
                         {% if project.image %}
@@ -240,61 +200,24 @@
         
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            {% for specialization in specializations %}
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
                 <div class="card-custom text-center">
                     <div class="specialization-icon mb-3">
-                        <i class="fab fa-python fa-3x text-accent"></i>
+                        <span class="badge bg-primary">{{ specialization.count }} projects</span>
                     </div>
-                    <h4 class="mb-3">Django Development</h4>
+                    <h4 class="mb-3">{{ specialization.title }}</h4>
                     <p class="text-secondary">
-                        Building robust, scalable web applications with Django. From authentication systems 
-                        to complex business logic, I create solutions that work.
+                        {{ specialization.description }}
                     </p>
                     <ul class="list-unstyled text-start mt-3">
-                        <li><i class="fas fa-check text-accent me-2"></i>Full Authentication Systems</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>CRUD Applications</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>API Development</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Database Design</li>
+                        {% for title in specialization.projects %}
+                            <li><i class="fas fa-check text-accent me-2"></i>{{ title }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
-            
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-custom text-center">
-                    <div class="specialization-icon mb-3">
-                        <i class="fas fa-shield-alt fa-3x text-accent"></i>
-                    </div>
-                    <h4 class="mb-3">Cybersecurity Tools</h4>
-                    <p class="text-secondary">
-                        Developing security analysis tools and scripts. From password validators to 
-                        network monitoring, I build tools that enhance security.
-                    </p>
-                    <ul class="list-unstyled text-start mt-3">
-                        <li><i class="fas fa-check text-accent me-2"></i>Security Analysis Scripts</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Password Validation Tools</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Network Monitoring</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Encryption Utilities</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-custom text-center">
-                    <div class="specialization-icon mb-3">
-                        <i class="fas fa-graduation-cap fa-3x text-accent"></i>
-                    </div>
-                    <h4 class="mb-3">Educational Content</h4>
-                    <p class="text-secondary">
-                        Creating beginner-friendly tutorials and practice projects. I believe in sharing 
-                        knowledge and helping others learn programming concepts.
-                    </p>
-                    <ul class="list-unstyled text-start mt-3">
-                        <li><i class="fas fa-check text-accent me-2"></i>Python Basics Tutorials</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>C++ Practice Projects</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Algorithm Implementations</li>
-                        <li><i class="fas fa-check text-accent me-2"></i>Code Documentation</li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
